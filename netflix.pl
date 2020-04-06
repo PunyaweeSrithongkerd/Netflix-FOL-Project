@@ -58,7 +58,14 @@ similar(M1,M2):-
     (facts:movie(M1);facts:series(M1)),
     (facts:movie(M2);facts:series(M2)),
     facts:type(M1,X),
-    facts:type(M2,X).
+    facts:type(M2,X),
+    not(M1 = M2).
+
+western(M):-
+    (facts:movie(M);facts:series(M)),
+    facts:is_from(M,U),
+    facts:is_usa(U).
+
 
 
 
